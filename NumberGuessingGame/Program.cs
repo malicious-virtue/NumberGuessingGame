@@ -9,14 +9,14 @@ while (numberOfTries > 0)
 {
     Console.WriteLine($"You have {numberOfTries} tries left. Enter your guess:");
     bool validGuess = int.TryParse(Console.ReadLine(), out int userGuess);
+    if (!validGuess)
+    {
+        Console.WriteLine("Please enter a valid number.");
+        continue;
+    }
     if (userGuess < 1 || userGuess > 50)
     {
         Console.WriteLine("Please enter a number between 1 and 50.");
-        continue;
-    }
-    if (validGuess == false)
-    {
-        Console.WriteLine("Please enter a valid number.");
         continue;
     }
     if (userGuess == numberToGuess)
